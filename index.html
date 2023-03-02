@@ -7,10 +7,22 @@
     <title>AI universe hub</title>
     <!-- Tailwind file -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- font awsome -->
+    <script
+      src="https://kit.fontawesome.com/0415b5453e.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body>
+  <body class="container mx-auto">
+    <main class="flex flex-col items-center ">
+      <h1 class="font-semibold text-4xl text-black">AI Universe Hub</h1>
+      <button class="bg-[#EB5757] px-6 py-5 rounded-xl my-9  text-white">Sort By Date</button>
+      <div>
+        <div id="details-container" class="grid grid-cols-3 gap-4"></div>
+      </div>
+       <button class="bg-[#EB5757] px-6 py-5 rounded-xl my-9 text-white">See More</button>
+    </main>
 
-    <h1>AI Universe Hub</h1>
     <!-- JS file -->
     <script src="index.js"></script>
   </body>
