@@ -12,18 +12,182 @@
       src="https://kit.fontawesome.com/0415b5453e.js"
       crossorigin="anonymous"
     ></script>
+    <!-- flowbit -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body class="container mx-auto">
-    <main class="flex flex-col items-center ">
+    <!-- main section -->
+    <main class="flex flex-col items-center">
       <h1 class="font-semibold text-4xl text-black">AI Universe Hub</h1>
-      <button class="bg-[#EB5757] px-6 py-5 rounded-xl my-9  text-white">Sort By Date</button>
+      <button class="bg-[#EB5757] px-6 py-5 rounded-xl my-9 text-white">
+        Sort By Date
+      </button>
       <div>
         <div id="details-container" class="grid grid-cols-3 gap-4"></div>
       </div>
-       <button class="bg-[#EB5757] px-6 py-5 rounded-xl my-9 text-white">See More</button>
+      <button
+        id="see-more"
+        class="bg-[#EB5757] px-6 py-5 rounded-xl my-9 text-white"
+        onclick="seeMore()"
+      >
+        See More
+      </button>
     </main>
+
+    <!-- MODAL section design -->
+
+    <section class="grid grid-cols-2 gap-4 bg-blue-300">
+      <div
+        class="px-6 pt-6 pb-14 border rounded-xl border-[#eb5757] bg-[#eb5757]"
+      >
+        <p
+          id="modal-description"
+          class="font-semibold text-xl text-black leading-7 mb-5"
+        ></p>
+
+        <div class="flex gap-3">
+          <p
+            id="basic-price"
+            class="p-4 bg-white rounded-xl font-extrabold text-xs text-center text-[#03A30A]"
+          ></p>
+          <p id="pro-price" class="p-4 bg-white rounded-xl text-[#F28927] font-extrabold text-xs text-center"></p>
+          <p id="enterprise-price" class="p-4 bg-white rounded-xl text-[#EB5757] font-extrabold text-xs text-center"></p>
+        </div>
+        <div class="flex gap-1">
+          <div>
+            <h1>Features</h1>
+            <ul class="list-disc">
+              <li>Customizable responses</li>
+              <li>Multilingual support</li>
+              <li>Seamless integration</li>
+            </ul>
+          </div>
+          <div>
+            <h2>Integration</h2>
+            <ul class="list-disc">
+              <li>FB Messenger</li>
+              <li>Slack</li>
+              <li>Telegram</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div id="modal-image" class="mb-5"></div>
+        <div>
+          <p
+            id="input-field"
+            class="font-semibold text-xl text-black text-center mb-3"
+          ></p>
+          <p
+            id="output-field"
+            class="font-normal text-xs text-center text-[#585858] leading-5"
+          ></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODAL -->
+    <section>
+      <!-- Modal toggle -->
+      <button
+        data-modal-target="staticModal"
+        data-modal-toggle="staticModal"
+        type="button"
+        class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+      >
+        Toggle modal
+      </button>
+
+      <!-- Main modal -->
+      <div
+        id="staticModal"
+        data-modal-backdrop="static"
+        tabindex="-1"
+        aria-hidden="true"
+        class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full"
+      >
+        <div class="relative w-full h-full max-w-2xl md:h-auto">
+          <!-- Modal content -->
+          <div class="relative bg-white rounded-lg shadow">
+            <!-- Modal header -->
+            <div
+              class="flex items-start justify-between p-4 border-b rounded-t"
+            >
+              <button
+                type="button"
+                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
+                data-modal-hide="staticModal"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <!-- Modal body -->
+            <div class="p-6 space-y-6">
+              <section class="grid grid-cols-2 gap-4">
+                <div
+                  class="px-6 pt-6 pb-14 border rounded-xl border-[#eb5757] bg-[#eb5757]"
+                >
+                  <p>
+                    ChatGPT is an AI-powered chatbot platform that uses OpenAI's
+                    GPT technology to simulate human conversation.
+                  </p>
+
+                  <div class="flex gap-3">
+                    <p
+                      class="p-4 bg-white rounded-xl font-bold text-xs text-center"
+                    >
+                      $10/month Basic
+                    </p>
+                    <p class="p-4 bg-white rounded-xl">$10/month Basic</p>
+                    <p class="p-4 bg-white rounded-xl">$10/month Basic</p>
+                  </div>
+                  <div class="flex gap-1">
+                    <div>
+                      <h1>Features</h1>
+                      <ul class="list-disc">
+                        <li>Customizable responses</li>
+                        <li>Multilingual support</li>
+                        <li>Seamless integration</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h2>Integration</h2>
+                      <ul class="list-disc">
+                        <li>FB Messenger</li>
+                        <li>Slack</li>
+                        <li>Telegram</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div></div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- JS file -->
     <script src="index.js"></script>
+    <!-- flowbit -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
   </body>
 </html>

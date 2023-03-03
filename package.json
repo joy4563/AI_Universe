@@ -1,0 +1,20 @@
+{
+  "name": "assignment6-ai-universe-hub",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/programming-hero-web-course2/b7a6-ai-universe-assignment-joy4563.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/programming-hero-web-course2/b7a6-ai-universe-assignment-joy4563/issues"
+  },
+  "homepage": "https://github.com/programming-hero-web-course2/b7a6-ai-universe-assignment-joy4563#readme"
+}
