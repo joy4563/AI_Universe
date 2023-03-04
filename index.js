@@ -57,7 +57,7 @@ function displayData(apis, dataLimit, sorting) {
       features_container[j].id = headerId;
       const hFive = document.createElement("h5");
       hFive.innerHTML = `
-            <h5>${k+1}. ${api.features[k]}</h5>
+            <h6 class="text-muted">${k + 1}. ${api.features[k]}</h6>
             `;
       document.getElementById(headerId).appendChild(hFive);
     }
