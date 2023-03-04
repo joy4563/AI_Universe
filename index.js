@@ -112,16 +112,15 @@ function showModalData(individualData) {
   for (const key of featureKey) {
     const list = document.createElement("li");
     list.innerText = `${individualData.features[key].feature_name}
-
     `;
     featureContainer.appendChild(list);
   }
 
   // integration
-  console.log(individualData);
   const integrationObject = individualData.integrations;
   const integrationContainer = document.getElementById("integration-container");
   integrationContainer.innerHTML = "";
+
   if (integrationObject == null) {
     const list = document.createElement("li");
     list.innerText = "No data found";
@@ -131,7 +130,7 @@ function showModalData(individualData) {
 
     for (const key of integrationKey) {
       const list = document.createElement("li");
-      list.innerText = `${individualData.integrations[key].feature_name}
+      list.innerText = `${individualData.integrations[key]}
     `;
       integrationContainer.appendChild(list);
     }
@@ -139,7 +138,27 @@ function showModalData(individualData) {
 
   // modal image
   const modalImage = document.getElementById("modal-image");
-  modalImage.innerHTML = `<img src="${individualData.image_link[0]}" class="rounded-xl md:w-80 md:h-72" alt="">`;
+
+  if (individualData.accuracy.score != null) {
+    modalImage.innerHTML = `
+<p class="font-semibold text-xs text-white bg-[#EB5757] rounded-md py-1 px-3 text-center absolute right-24  lg:top-32 lg:right-28 ">${
+      individualData.accuracy.score * 100
+    }% accuracy</p>
+  <img src="${
+    individualData.image_link[0]
+  }" class="rounded-xl md:w-80 md:h-72" alt="">`;
+  } else {
+    modalImage.innerHTML = `
+
+  <img src="${individualData.image_link[0]}" class="rounded-xl md:w-80 md:h-72" alt="">`;
+  }
+
+  // accuracy image
+  // const accuracyPart = document.getElementById("accuracy");
+  // console.log(individualData.accuracy.score);
+  // if (individualData.accuracy.score == null) {
+  //   accuracyPart.innerText="joy"
+  // }
 
   // modal input
   const inputField = document.getElementById("input-field");
@@ -155,5 +174,7 @@ function showModalData(individualData) {
       ? "No! Not Yet! Take a break!!!"
       : individualData.input_output_examples[0].output
   }`;
+
+  // modal accuracy
 }
 fetchModalData();

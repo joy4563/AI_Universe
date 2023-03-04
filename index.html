@@ -95,7 +95,7 @@
             <div class="p-6 space-y-6">
               <!-- MODAL section design -->
 
-              <section class="grid grid-cols-2 gap-4">
+              <section class="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <div
                   class="px-6 pt-6 pb-14 border rounded-xl border-[#eb5757] bg-[#eb5757] bg-opacity-10"
                 >
@@ -105,7 +105,7 @@
                     class="font-semibold text-xl text-black leading-7 mb-5"
                   ></p>
                   <!-- price segment -->
-                  <div class="flex flex-nowrap content-between gap-3 mb-5">
+                  <div class="grid grid-cols-1 md:grid-cols-3 content-between gap-3 mb-5">
                     <p
                       class="p-4 bg-white rounded-xl font-extrabold text-xs text-center text-[#03A30A]"
                     >
@@ -119,25 +119,32 @@
                     <p
                       class="p-4 bg-white rounded-xl text-[#EB5757] font-extrabold text-xs text-center"
                     >
-                      <span id="enterprise-price"></span><br/>Enterprise</p>
+                      <span id="enterprise-price"></span><br />Enterprise
+                    </p>
                   </div>
                   <!-- features------- -->
-                  <div class="flex gap-3 content-between">
+                  <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 content-between">
                     <div>
                       <h1 class="font-semibold text-xl">Features</h1>
-                      <ul id="featurs-container" class="list-disc pl-4"></ul>
+                      <ul id="featurs-container" class="list-disc pl-7"></ul>
                     </div>
                     <div>
                       <!-- intigration -->
                       <h2 class="font-semibold text-xl">Integration</h2>
-                      <ul id="integration-container" class="list-disc pl-4"></ul>
+                      <ul
+                        id="integration-container"
+                        class="list-disc pl-7"
+                      ></ul>
                     </div>
                   </div>
                 </div>
                 <div
                   class="p-5 border border-[#E7E7E7] rounded-xl flex flex-col items-center content-center"
                 >
-                  <div id="modal-image" class="mb-5"></div>
+                  <!-- modal image -->
+                  <div id="modal-image" class="mb-5">
+                    
+                  </div>
                   <div>
                     <p
                       id="input-field"
