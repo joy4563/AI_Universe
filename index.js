@@ -25,9 +25,7 @@ function displayData(apis, dataLimit, sorting) {
 
   for (let j = 0; j < apis.length; j++) {
     const api = apis[j];
-    // console.log(api);
     let headerId = "features_container" + j;
-    // console.log(headerId);
     const div1 = document.createElement("div");
     div1.classList.add("col");
     div1.innerHTML = `
@@ -45,7 +43,7 @@ function displayData(apis, dataLimit, sorting) {
                     <h6>${api.published_in}</h6>
                 </div>
                 <div >
-                    <button ><i class="fa-sharp fa-solid fa-arrow-right " onclick="featureDetails('${api.id}')" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></button>
+                    <button ><i class="fa-solid fa-arrow-right text-danger " onclick="featureDetails('${api.id}')" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></button>
                 </div>
             </div>
         </div>
@@ -73,12 +71,12 @@ function featureDetails(id) {
 }
 
 function showParticularItem(details) {
-  console.log(details.features);
 
   const obj = details.features;
   const keys = Object.keys(obj);
   const arr = details.integrations;
 
+  // input output section
   let input, output, score;
 
   if (details.input_output_examples == null) {
@@ -88,9 +86,10 @@ function showParticularItem(details) {
     input = details.input_output_examples[0].input;
     output = details.input_output_examples[0].output;
   }
-
+// description
   document.getElementById("description").innerText = details.description;
 
+  // basic,pro,enterprise
   if (details.pricing == null) {
     document.getElementById("basicDiv").classList.add("d-none");
     document.getElementById("basicFree").classList.remove("d-none");
@@ -131,11 +130,10 @@ function showParticularItem(details) {
       document.getElementById("contact").classList.add("d-none");
     }
   }
-
+// features and integration
   const feaTures = document.getElementById("features");
   feaTures.textContent = "";
   const unorderedList = document.createElement("ul");
-  // console.log(obj);
   for (const key of keys) {
     const list = document.createElement("li");
     list.innerHTML = `
@@ -169,7 +167,7 @@ function showParticularItem(details) {
   if (details.accuracy.score != null) {
     score = details.accuracy.score * 100;
   }
-
+// image site section
   const imgSiteDiv = document.getElementById("imgSite");
   imgSiteDiv.textContent = "";
   const div1 = document.createElement("div");
@@ -189,7 +187,7 @@ function showParticularItem(details) {
   document.getElementById("input").innerText = input;
   document.getElementById("output").innerText = output;
 }
-
+// spinner section
 function showToggle(b) {
   const toggle = document.getElementById("loader");
   if (b) {
