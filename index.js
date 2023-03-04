@@ -40,12 +40,12 @@ function displayData(apis, dataLimit, sorting) {
             <hr class="mb-3">
             <h3>${api.name}</h3>
             <div class="d-flex justify-content-between">
-                <div class="d-flex gap-2">
+                <div class="d-flex gap-2 text-muted">
                     <i class="fa-solid fa-calendar-days fs-5"></i>
-                    <h5>${api.published_in}</h5>
+                    <h6>${api.published_in}</h6>
                 </div>
-                <div>
-                    <button><i class="fa-sharp fa-solid fa-arrow-right" onclick="featureDetails('${api.id}')" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></button>
+                <div >
+                    <button ><i class="fa-sharp fa-solid fa-arrow-right" onclick="featureDetails('${api.id}')" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></button>
                 </div>
             </div>
         </div>
