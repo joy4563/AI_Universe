@@ -45,7 +45,7 @@ function displayData(apis, dataLimit, sorting) {
                     <h6>${api.published_in}</h6>
                 </div>
                 <div >
-                    <button ><i class="fa-sharp fa-solid fa-arrow-right" onclick="featureDetails('${api.id}')" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></button>
+                    <button ><i class="fa-sharp fa-solid fa-arrow-right " onclick="featureDetails('${api.id}')" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></button>
                 </div>
             </div>
         </div>
