@@ -37,59 +37,6 @@
       </button>
     </main>
 
-    <!-- MODAL section design -->
-
-    <section class="grid grid-cols-2 gap-4 bg-blue-300">
-      <div
-        class="px-6 pt-6 pb-14 border rounded-xl border-[#eb5757] bg-[#eb5757]"
-      >
-        <p
-          id="modal-description"
-          class="font-semibold text-xl text-black leading-7 mb-5"
-        ></p>
-
-        <div class="flex gap-3">
-          <p
-            id="basic-price"
-            class="p-4 bg-white rounded-xl font-extrabold text-xs text-center text-[#03A30A]"
-          ></p>
-          <p id="pro-price" class="p-4 bg-white rounded-xl text-[#F28927] font-extrabold text-xs text-center"></p>
-          <p id="enterprise-price" class="p-4 bg-white rounded-xl text-[#EB5757] font-extrabold text-xs text-center"></p>
-        </div>
-        <div class="flex gap-1">
-          <div>
-            <h1>Features</h1>
-            <ul class="list-disc">
-              <li>Customizable responses</li>
-              <li>Multilingual support</li>
-              <li>Seamless integration</li>
-            </ul>
-          </div>
-          <div>
-            <h2>Integration</h2>
-            <ul class="list-disc">
-              <li>FB Messenger</li>
-              <li>Slack</li>
-              <li>Telegram</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div id="modal-image" class="mb-5"></div>
-        <div>
-          <p
-            id="input-field"
-            class="font-semibold text-xl text-black text-center mb-3"
-          ></p>
-          <p
-            id="output-field"
-            class="font-normal text-xs text-center text-[#585858] leading-5"
-          ></p>
-        </div>
-      </div>
-    </section>
-
     <!-- MODAL -->
     <section>
       <!-- Modal toggle -->
@@ -102,15 +49,23 @@
         Toggle modal
       </button>
 
+      <button
+        data-modal-target="staticModal"
+        data-modal-toggle="staticModal"
+        type="button"
+      >
+        Bals
+      </button>
+
       <!-- Main modal -->
       <div
         id="staticModal"
         data-modal-backdrop="static"
         tabindex="-1"
         aria-hidden="true"
-        class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full"
+        class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-auto overflow-y-auto md:inset-0 h-modal md:h-full"
       >
-        <div class="relative w-full h-full max-w-2xl md:h-auto">
+        <div class="relative w-full h-full max-w-5xl md:h-auto">
           <!-- Modal content -->
           <div class="relative bg-white rounded-lg shadow">
             <!-- Modal header -->
@@ -138,45 +93,61 @@
             </div>
             <!-- Modal body -->
             <div class="p-6 space-y-6">
+              <!-- MODAL section design -->
+
               <section class="grid grid-cols-2 gap-4">
                 <div
-                  class="px-6 pt-6 pb-14 border rounded-xl border-[#eb5757] bg-[#eb5757]"
+                  class="px-6 pt-6 pb-14 border rounded-xl border-[#eb5757] bg-[#eb5757] bg-opacity-10"
                 >
-                  <p>
-                    ChatGPT is an AI-powered chatbot platform that uses OpenAI's
-                    GPT technology to simulate human conversation.
-                  </p>
-
-                  <div class="flex gap-3">
+                  <!-- modal description -->
+                  <p
+                    id="modal-description"
+                    class="font-semibold text-xl text-black leading-7 mb-5"
+                  ></p>
+                  <!-- price segment -->
+                  <div class="flex flex-nowrap content-between gap-3 mb-5">
                     <p
-                      class="p-4 bg-white rounded-xl font-bold text-xs text-center"
+                      class="p-4 bg-white rounded-xl font-extrabold text-xs text-center text-[#03A30A]"
                     >
-                      $10/month Basic
+                      <span id="basic-price"> </span> <br />Basic
                     </p>
-                    <p class="p-4 bg-white rounded-xl">$10/month Basic</p>
-                    <p class="p-4 bg-white rounded-xl">$10/month Basic</p>
+                    <p
+                      class="p-4 bg-white rounded-xl text-[#F28927] font-extrabold text-xs text-center"
+                    >
+                      <span id="pro-price"></span><br />Pro
+                    </p>
+                    <p
+                      class="p-4 bg-white rounded-xl text-[#EB5757] font-extrabold text-xs text-center"
+                    >
+                      <span id="enterprise-price"></span><br/>Enterprise</p>
                   </div>
-                  <div class="flex gap-1">
+                  <!-- features------- -->
+                  <div class="flex gap-3 content-between">
                     <div>
-                      <h1>Features</h1>
-                      <ul class="list-disc">
-                        <li>Customizable responses</li>
-                        <li>Multilingual support</li>
-                        <li>Seamless integration</li>
-                      </ul>
+                      <h1 class="font-semibold text-xl">Features</h1>
+                      <ul id="featurs-container" class="list-disc pl-4"></ul>
                     </div>
                     <div>
-                      <h2>Integration</h2>
-                      <ul class="list-disc">
-                        <li>FB Messenger</li>
-                        <li>Slack</li>
-                        <li>Telegram</li>
-                      </ul>
+                      <!-- intigration -->
+                      <h2 class="font-semibold text-xl">Integration</h2>
+                      <ul id="integration-container" class="list-disc pl-4"></ul>
                     </div>
                   </div>
                 </div>
-                <div>
-                  <div></div>
+                <div
+                  class="p-5 border border-[#E7E7E7] rounded-xl flex flex-col items-center content-center"
+                >
+                  <div id="modal-image" class="mb-5"></div>
+                  <div>
+                    <p
+                      id="input-field"
+                      class="font-semibold text-xl text-black text-center mb-3"
+                    ></p>
+                    <p
+                      id="output-field"
+                      class="font-normal text-xs text-center text-[#585858] leading-5"
+                    ></p>
+                  </div>
                 </div>
               </section>
             </div>
