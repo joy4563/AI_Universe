@@ -4,167 +4,181 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI universe hub</title>
-    <!-- Tailwind file -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- font awsome -->
+    <title>API Universe Hub</title>
     <script
-      src="https://kit.fontawesome.com/0415b5453e.js"
+      src="https://kit.fontawesome.com/edda25d231.js"
       crossorigin="anonymous"
     ></script>
-    <!-- flowbit -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <style>
+      .pricing {
+        background: #ffffff;
+        border-radius: 16px;
+      }
+      .modalDes {
+        background: rgba(235, 87, 87, 0.05);
+        border: 1px solid #eb5757;
+        border-radius: 16px;
+        padding: 20px;
+      }
+      .accurate {
+        position: absolute;
+        top: 10%;
+        right: 10%;
+      }
+      .closingBtn {
+        background-color: #f90303;
+        border-radius: 50%;
+        position: absolute;
+        top: -1%;
+        right: -1%;
+      }
+      .divSize {
+        height: 110px;
+      }
+    </style>
   </head>
-  <body class="container mx-auto px-4">
-    <!-- main section -->
-    <main class="flex flex-col items-center">
-      <h1 class="font-semibold text-4xl text-black">AI Universe Hub</h1>
-      <button class="bg-[#EB5757] px-6 py-5 rounded-xl my-9 text-white">
-        Sort By Date
-      </button>
-      <div>
+  <body>
+    <header
+      class="d-flex flex-column gap-3 justify-content-center align-items-center mt-5 mb-5"
+    >
+      <h3>AI Universe Hub</h3>
+      <button class="btn btn-danger" id="sortDate">Sort By Date</button>
+    </header>
+    <main class="container">
+      <section>
         <div
-          id="details-container"
-          class="grid grid-cols-1 lg:grid-cols-3 gap-4"
+          class="row row-cols-1 row-cols-md-3 g-4 mb-5"
+          id="ai_container"
         ></div>
-      </div>
-      <button
-        id="see-more"
-        class="bg-[#EB5757] px-6 py-5 rounded-xl my-9 text-white"
-        onclick="seeMore()"
-      >
-        See More
-      </button>
-    </main>
+        <div class="d-none text-center pb-5 mt-5" id="showAll">
+          <div class="btn btn-primary" id="showAll-btn">See More</div>
+        </div>
+      </section>
+      <section class="d-none" id="loader">
+        <div
+          class="d-flex justify-content-center align-items-center"
+          style="height: 400px"
+        >
+          <div class="spinner-border text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </section>
+      <section>
+        <!-- Button trigger modal -->
 
-    <!-- MODAL -->
-    <section>
-      <!-- Modal toggle -->
-      <button
-        data-modal-target="staticModal"
-        data-modal-toggle="staticModal"
-        type="button"
-        class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-      >
-        Toggle modal
-      </button>
-
-      <!------------------- Main modal ----------------->
-      <div
-        id="staticModal"
-        data-modal-backdrop="static"
-        tabindex="-1"
-        aria-hidden="true"
-        class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-auto overflow-y-auto md:inset-0 h-modal md:h-full"
-      >
-        <div class="relative w-full h-full max-w-5xl md:h-auto">
-          <!-- Modal content -->
-          <div class="relative bg-white rounded-lg shadow">
-            <!-- Modal header -->
-            <div
-              class="flex items-start justify-between p-4 border-b rounded-t"
-            >
-              <button
-                type="button"
-                class="text-white bg-[#EB5757] rounded-full text-sm p-1.5 ml-auto inline-flex items-center"
-                data-modal-hide="staticModal"
-              >
-                <svg
-                  class="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-              </button>
-            </div>
-            <!-- Modal body -->
-            <div class="p-6 space-y-6">
-              <!-- MODAL section design -->
-
-              <section class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                <div
-                  class="px-6 pt-6 pb-14 border rounded-xl border-[#eb5757] bg-[#eb5757] bg-opacity-10"
-                >
-                  <!-- modal description -->
-                  <p
-                    id="modal-description"
-                    class="font-semibold text-xl text-black leading-7 mb-5"
-                  ></p>
-                  <!-- price segment -->
-                  <div
-                    class="grid grid-cols-1 md:grid-cols-3 content-between gap-3 mb-5"
-                  >
-                    <p
-                      class="p-4 bg-white rounded-xl font-extrabold text-xs text-center text-[#03A30A]"
-                    >
-                      <span id="basic-price"> </span> <br />Basic
-                    </p>
-                    <p
-                      class="p-4 bg-white rounded-xl text-[#F28927] font-extrabold text-xs text-center"
-                    >
-                      <span id="pro-price"></span><br />Pro
-                    </p>
-                    <p
-                      class="p-4 bg-white rounded-xl text-[#EB5757] font-extrabold text-xs text-center"
-                    >
-                      <span id="enterprise-price"></span><br />Enterprise
-                    </p>
-                  </div>
-                  <!-- features------- -->
-                  <div
-                    class="grid grid-cols-1 lg:grid-cols-2 gap-3 content-between"
-                  >
-                    <div>
-                      <h1 class="font-semibold text-xl">Features</h1>
-                      <ul id="featurs-container" class="list-disc pl-7"></ul>
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button
+                  class="btn-close closingBtn"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <div class="row p-3">
+                  <div class="col-12 col-md-6 modalDes">
+                    <h6
+                      style="text-align: justify"
+                      id="description"
+                      class="mb-5 mt-3"
+                    ></h6>
+                    <div class="mb-5">
+                      <div class="row p-2 g-3">
+                        <div
+                          class="col-12 col-md-4 d-none text-success pricing text-center"
+                          id="basicDiv"
+                        >
+                          <h6 class="mt-2">
+                            <span id="basic"></span><br />
+                            Basic
+                          </h6>
+                        </div>
+                        <div
+                          class="col-12 col-md-4 d-none text-success pricing text-center"
+                          id="basicFree"
+                        >
+                          <h6 class="mt-2" id="freeBasic">
+                            Free of <br />cost/basic
+                          </h6>
+                        </div>
+                        <div
+                          class="col-12 col-md-4 d-none pricing text-center"
+                          id="proDiv"
+                          style="color: #f28927"
+                        >
+                          <h6 class="mt-2">
+                            <span id="pro"></span><br />
+                            pro
+                          </h6>
+                        </div>
+                        <div
+                          class="col-12 col-md-4 d-none pricing text-center"
+                          id="proFree"
+                          style="color: #f28927"
+                        >
+                          <h6 class="mt-2" id="freePro">
+                            Free of <br />cost/pro
+                          </h6>
+                        </div>
+                        <div
+                          class="col-12 col-md-4 d-none text-danger pricing text-center"
+                          id="contact"
+                        >
+                          <h6 class="mt-2" id="enterprise">
+                            Contact us <br />Enterprise
+                          </h6>
+                        </div>
+                        <div
+                          class="col-12 col-md-4 d-none text-danger pricing text-center"
+                          id="notContact"
+                        >
+                          <h6 class="mt-2" id="freeEnterprise">
+                            Free of <br />cost/Enterprise
+                          </h6>
+                        </div>
+                      </div>
                     </div>
                     <div>
-                      <!-- intigration -->
-                      <h2 class="font-semibold text-xl">Integration</h2>
-                      <ul
-                        id="integration-container"
-                        class="list-disc pl-7"
-                      ></ul>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <h4 class="mb-3">Features</h4>
+                          <div id="features"></div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <h4 class="mb-3">Integrations</h4>
+                          <div id="integrations"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="card" style="border-radius: 16px; width: 100%">
+                      <div id="imgSite"></div>
+                      <div class="card-body">
+                        <h5 class="card-text text-center" id="input"></h5>
+                        <p class="card-text text-center" id="output"></p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div
-                  class="p-5 border border-[#E7E7E7] rounded-xl flex flex-col items-center content-center"
-                >
-                  <!-- modal image -->
-                  <div id="modal-image" class="mb-5"></div>
-                  <div>
-                    <p
-                      id="input-field"
-                      class="font-semibold text-xl text-black text-center mb-3"
-                    ></p>
-                    <p
-                      id="output-field"
-                      class="font-normal text-xs text-center text-[#585858] leading-5"
-                    ></p>
-                  </div>
-                </div>
-              </section>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- flowbit -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
-    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
-
-    <!-- JS file -->
+      </section>
+    </main>
+    <script src="bootstrap.min.js"></script>
     <script src="index.js"></script>
   </body>
 </html>
