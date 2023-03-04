@@ -36,8 +36,9 @@ function showAllDetails(details, dataLimit) {
                         </p>
                       </div>
                         <button class="bg-[#FEF7F7] h-10 w-10 rounded-full" onClick="clickOnDetails('${detail.id}')"
-                           data-modal-target="defaultModal"
-      data-modal-toggle="defaultModal" > joy<i class="fa-solid fa-arrow-right text-[#EB5757]"></i></button>
+          data-modal-target="staticModal"
+          data-modal-toggle="staticModal"
+        type="button" ><i class="fa-solid fa-arrow-right text-[#EB5757]"></i></button>
                     </div>
                 </div>
         `;
@@ -53,7 +54,7 @@ function seeMore(dataLimit) {
   fetchData();
 }
 
-// fetchData(6);
+fetchData(6);
 
 // fetch data for modal
 const fetchModalData = () => {
@@ -152,13 +153,6 @@ function showModalData(individualData) {
 
   <img src="${individualData.image_link[0]}" class="rounded-xl md:w-80 md:h-72" alt="">`;
   }
-
-  // accuracy image
-  // const accuracyPart = document.getElementById("accuracy");
-  // console.log(individualData.accuracy.score);
-  // if (individualData.accuracy.score == null) {
-  //   accuracyPart.innerText="joy"
-  // }
 
   // modal input
   const inputField = document.getElementById("input-field");

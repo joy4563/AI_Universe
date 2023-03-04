@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/programming-hero-web-course2/b7a6-ai-universe-assignment-joy4563/issues"
   },
-  "homepage": "https://github.com/programming-hero-web-course2/b7a6-ai-universe-assignment-joy4563#readme"
+  "homepage": "https://github.com/programming-hero-web-course2/b7a6-ai-universe-assignment-joy4563#readme",
+  "dependencies": {
+    "flowbite": "^1.6.3"
+  }
 }

@@ -18,7 +18,7 @@
       rel="stylesheet"
     />
   </head>
-  <body class="container mx-auto">
+  <body class="container mx-auto px-4">
     <!-- main section -->
     <main class="flex flex-col items-center">
       <h1 class="font-semibold text-4xl text-black">AI Universe Hub</h1>
@@ -26,7 +26,10 @@
         Sort By Date
       </button>
       <div>
-        <div id="details-container" class="grid grid-cols-3 gap-4"></div>
+        <div
+          id="details-container"
+          class="grid grid-cols-1 lg:grid-cols-3 gap-4"
+        ></div>
       </div>
       <button
         id="see-more"
@@ -49,15 +52,7 @@
         Toggle modal
       </button>
 
-      <button
-        data-modal-target="staticModal"
-        data-modal-toggle="staticModal"
-        type="button"
-      >
-        Bals
-      </button>
-
-      <!-- Main modal -->
+      <!------------------- Main modal ----------------->
       <div
         id="staticModal"
         data-modal-backdrop="static"
@@ -74,7 +69,7 @@
             >
               <button
                 type="button"
-                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
+                class="text-white bg-[#EB5757] rounded-full text-sm p-1.5 ml-auto inline-flex items-center"
                 data-modal-hide="staticModal"
               >
                 <svg
@@ -105,7 +100,9 @@
                     class="font-semibold text-xl text-black leading-7 mb-5"
                   ></p>
                   <!-- price segment -->
-                  <div class="grid grid-cols-1 md:grid-cols-3 content-between gap-3 mb-5">
+                  <div
+                    class="grid grid-cols-1 md:grid-cols-3 content-between gap-3 mb-5"
+                  >
                     <p
                       class="p-4 bg-white rounded-xl font-extrabold text-xs text-center text-[#03A30A]"
                     >
@@ -123,7 +120,9 @@
                     </p>
                   </div>
                   <!-- features------- -->
-                  <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 content-between">
+                  <div
+                    class="grid grid-cols-1 lg:grid-cols-2 gap-3 content-between"
+                  >
                     <div>
                       <h1 class="font-semibold text-xl">Features</h1>
                       <ul id="featurs-container" class="list-disc pl-7"></ul>
@@ -142,9 +141,7 @@
                   class="p-5 border border-[#E7E7E7] rounded-xl flex flex-col items-center content-center"
                 >
                   <!-- modal image -->
-                  <div id="modal-image" class="mb-5">
-                    
-                  </div>
+                  <div id="modal-image" class="mb-5"></div>
                   <div>
                     <p
                       id="input-field"
@@ -163,9 +160,11 @@
       </div>
     </section>
 
-    <!-- JS file -->
-    <script src="index.js"></script>
     <!-- flowbit -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+
+    <!-- JS file -->
+    <script src="index.js"></script>
   </body>
 </html>
